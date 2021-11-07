@@ -3,7 +3,7 @@ import express from 'express';
 import upload from "./middlewares/upload";
 import { middlewareError } from './middlewares/error';
 import health from './api/health/health-controller';
-import { APP_NAME, NODE_ENV, PORT, ENVIRONMENT } from './config/env';
+import { APP_NAME, NODE_ENV, PORT } from './config/env';
 import { uploadFileController } from './api/upload-file/upload-file-controller';
 
 const app = express();

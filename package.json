@@ -10,7 +10,7 @@
     },
     "engineStrict": true,
     "scripts": {
-        "build": "yarn compile && yarn test",
+        "build": "yarn compile",
         "compile": "tsc",
         "start:dev": "nodemon --watch src --exec ts-node src/app.ts",
         "start": "node dist/app.js",

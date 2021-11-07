@@ -48,3 +48,35 @@ export enum OperationTrackStatus {
     Failed = "Failed",
     Terminated = "Terminated"
 }
+
+export type User = {
+    username: string;
+    email: string;
+}
+
+export type GetFileInfo = {
+    requestFile: RequestFile,
+    operationId: string,
+    user: User
+}
+
+export type FileInfo = {
+    id: string;
+    author: string;
+    errors: string[] | null;
+    size: string;
+    filePath: string;
+    filename:string;
+    originalname: string;
+    started_at: Date;
+    finished_at: Date | null;
+    status: OperationTrackStatus;
+    additional_data: { rows: number };
+}
+
+
+export type UploadFileWorkerResponseData = {
+    type: FileUploadStatus;
+    operationId: string;
+    error?: any;
+};

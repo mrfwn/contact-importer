@@ -1,6 +1,6 @@
 create table if not exists batch_execution_status 
 ( 
-    id VARCHAR(30) primary key not null,
+    id VARCHAR(64) primary key not null,
     author VARCHAR(254) not null,
     errors JSONB,
     size VARCHAR(11) not null,

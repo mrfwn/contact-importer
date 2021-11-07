@@ -1,6 +1,6 @@
 import Papa from "papaparse";
-import { readFileSync } from "fs";
-import { CsvRowCommon, OperationTrackStatus } from "../types";
+import { readFileSync, unlinkSync } from "fs";
+import { CsvRowCommon, FileInfo, GetFileInfo, OperationTrackStatus } from "../types";
 
 export const parseCsv = (csv: string) => {
     const { data } = Papa.parse(csv, {
@@ -18,17 +18,18 @@ export const parseCsv = (csv: string) => {
     const PapaResponse = parseCsv(fileString);
     return PapaResponse;
   };
-  
 
+  
   export const getFileInfo = ({
     requestFile,
     operationId,
     user
-}) => ({
-        operationId,
+}: GetFileInfo): FileInfo => ({
+        id: operationId,
         author: user.email,
         errors: null,
         size: `${requestFile.size}`,
+        filePath: requestFile.path,
         filename: requestFile.filename.trim(),
         originalname: requestFile.originalname,
         started_at: new Date(),
@@ -36,3 +37,5 @@ export const parseCsv = (csv: string) => {
         status: OperationTrackStatus.OnHold,
         additional_data: { rows: 0 }
 })
+
+export const removeMulterTempFile = (filePath: string) => unlinkSync(filePath);
