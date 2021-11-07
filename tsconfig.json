@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "incremental": true,
+        "target": "es5",
+        "module": "commonjs",
+        "lib": [
+            "DOM",
+            "ESNext"
+        ],
+        "resolveJsonModule": true,
+        "moduleResolution": "Node",
+        "declaration": true,
+        "declarationMap": false,
+        "sourceMap": true,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "removeComments": true,
+        "importHelpers": true,
+        "downlevelIteration": true,
+        "isolatedModules": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "preserveConstEnums": true,
+        "strict": false,
+        "alwaysStrict": true,
+        "strictNullChecks": true,
+        "noStrictGenericChecks": true,
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "./dist"
+    ]
+}
