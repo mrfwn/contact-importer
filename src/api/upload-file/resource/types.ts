@@ -49,20 +49,17 @@ export enum OperationTrackStatus {
     Terminated = "Terminated"
 }
 
-export type User = {
-    username: string;
-    email: string;
-}
+
 
 export type GetFileInfo = {
     requestFile: RequestFile,
     operationId: string,
-    user: User
+    user: { id: number }
 }
 
 export type FileInfo = {
     id: string;
-    author: string;
+    author: number;
     errors: string[] | null;
     size: string;
     filePath: string;
@@ -80,3 +77,20 @@ export type UploadFileWorkerResponseData = {
     operationId: string;
     error?: any;
 };
+
+export type ErrorsContexts = {
+    message: string, 
+    lines: number[]
+  }
+
+  export type ErrorsFields = {
+    messages: string[], 
+    line: number
+  }
+
+  export type OperationError = {
+    contentError: ErrorsFields[];
+    contextError: ErrorsContexts[];
+    consolidateMessages: string[];
+    consolidateLines: number[];
+  }

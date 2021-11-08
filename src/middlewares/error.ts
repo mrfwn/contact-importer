@@ -43,20 +43,20 @@ export class DatabaseError extends Error {
     }
 }
 
-
-export class IntegrationError extends Error {
+export class AuthorizationError extends Error {
     public status: number;
     public data: string[];
     constructor(message: string, data?: string[]) {
         super(message);
         this.data = data || [];
-        this.name = 'IntegrationError';
+        this.name = 'AuthorizationError';
         this.message = message;
-        this.status = 500;
+        this.status = 401;
     }
 }
 
-export type GeneralError = ValidationError | DatabaseError | IntegrationError;
+
+export type GeneralError = ValidationError | DatabaseError | AuthorizationError;
 
 export const middlewareError = (err: GeneralError, req: Request, res: Response, _: NextFunction) => {
     const environment = ENVIRONMENT || 'local';
@@ -95,6 +95,6 @@ export const middlewareError = (err: GeneralError, req: Request, res: Response, 
     } else {
         console.log(err);
         const finalStatus = err.status ? err.status : 500;
-        return res.status(finalStatus).json({ status: 'error', message: err.stack ?? err.message });
+        return res.status(finalStatus).json({ status: 'error', message: err.message });
     }
 };

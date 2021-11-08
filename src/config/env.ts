@@ -13,5 +13,6 @@ export const APP_NAME = process.env.APP_NAME;
 export const PORT = process.env.PORT;
 export const IS_DEV = process.env.NODE_ENV === "dev";
 export const IS_TEST = process.env.NODE_ENV === "test";
-
+export const SALT_KEY = process.env.SALT_KEY;
+export const APP_KEY = process.env.APP_KEY; 
 export const API_ROOT = IS_DEV || IS_TEST ? join(process.cwd(), "src") : join(process.cwd(), "dist");

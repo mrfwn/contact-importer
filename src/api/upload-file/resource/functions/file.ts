@@ -1,6 +1,8 @@
 import Papa from "papaparse";
 import { readFileSync, unlinkSync } from "fs";
 import { CsvRowCommon, FileInfo, GetFileInfo, OperationTrackStatus } from "../types";
+import { AES, enc } from "crypto-js";
+import { SALT_KEY } from "../../../../config/env";
 
 export const parseCsv = (csv: string) => {
     const { data } = Papa.parse(csv, {
@@ -26,7 +28,7 @@ export const parseCsv = (csv: string) => {
     user
 }: GetFileInfo): FileInfo => ({
         id: operationId,
-        author: user.email,
+        author: user.id,
         errors: null,
         size: `${requestFile.size}`,
         filePath: requestFile.path,
@@ -39,3 +41,6 @@ export const parseCsv = (csv: string) => {
 })
 
 export const removeMulterTempFile = (filePath: string) => unlinkSync(filePath);
+
+export const encodeValue = (value: string) => AES.encrypt(value, SALT_KEY ?? '').toString();
+export const decodeValue = (value: string) => AES.decrypt(value, SALT_KEY ?? '').toString(enc.Utf8);

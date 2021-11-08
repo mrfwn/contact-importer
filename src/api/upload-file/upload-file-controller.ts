@@ -8,7 +8,7 @@ export const uploadFileController = async (request: Request, response: Response)
   
   const requestFile = request.file as RequestFile;
   
-  const user = { email: 'mariowessen@gmail.com' }
+  const user = request['user']
   
   const uploadTracker = await createFileUploadTracker({ requestFile, user });
 
