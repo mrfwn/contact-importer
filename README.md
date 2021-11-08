@@ -44,32 +44,31 @@ Ex: https://contact-import-api.herokuapp.com/health
 
  ### POST /signup 
     - Request:
-
-        ```json
+```json
         {
-            "username": "example",
-            "email": "example@email.com",
-            "password": "example"
+           "username": "example",
+           "email": "example@email.com",
+           "password": "example"
         }
-        ```
+```
  ### POST /signin
     - Request:
 
-        ```json
+```json
         {
             "email": "example@example.com",
             "password": "example"
         }   
-        ```
+```
 
     - Response:
 
-        ```json
+```json
         {
             "email": "example@example.com",
             "token": "Token"
         }  
-        ```
+```
         
  ### POST /upload
     - Request:
@@ -78,18 +77,18 @@ Ex: https://contact-import-api.herokuapp.com/health
 
     - Response: 
 
-    ```json
+```json
         {
         "status": "success",
             "data": {
                 "operationId": "2e11b447-547f-4f21-91f7-9e4ef4832bc6"
             }
         }  
-    ```
+```
  ### GET /check-status/:operationId
     - Response:
 
-    ```json
+ ```json
             {
                 "status": "success",
                 "data": {
@@ -97,14 +96,14 @@ Ex: https://contact-import-api.herokuapp.com/health
                         "percent": 0
                 }
             }     
-    ```
+ ```
 
  ### GET /contacts?items=2&page=1
     - Request - header: authorization - Bearer token
 
     - Response:
 
-    ```json
+ ```json
             {
                 "status": "success",
                 "data": {
@@ -132,14 +131,14 @@ Ex: https://contact-import-api.herokuapp.com/health
                     "pages": 9
                 }
             }    
-    ```
+ ```
 
  ### GET /files?items=2&page=1
     - Request - header: authorization - Bearer token
 
     - Response: 
 
-    ```json
+ ```json
             {
                 "status": "success",
                 "data": {
@@ -158,13 +157,13 @@ Ex: https://contact-import-api.herokuapp.com/health
                     "pages": 1
                 }
             }   
-    ``` 
+  ``` 
 
 ### GET /health
 
     - Response: 
 
-    ```json
+```json
             {
                 "appName": "contact-import-api",
                 "appVersion": "1.0.0",
@@ -176,7 +175,7 @@ Ex: https://contact-import-api.herokuapp.com/health
                 "errors": [],
                 "statusCode": 200
             }  
-    ```    
+```    
         
 
 
