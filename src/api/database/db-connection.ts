@@ -18,7 +18,9 @@ export const db = new Pool({
     password: POSTGRES_PASSWORD,
     port: Number.parseInt(POSTGRES_PORT || '5432', 10),
     max: 100,
-    ssl: isSSLFlagActive(POSTGRES_SSL)
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 NODE_ENV === 'test' && db.on('error', (err, client) => {});
